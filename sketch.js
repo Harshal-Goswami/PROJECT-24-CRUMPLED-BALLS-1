@@ -16,7 +16,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	
+	//Create the Bodies Here.
 
 
 	Engine.run(engine);
@@ -32,8 +32,5 @@ function draw() {
  
 }
 
-function keyPressed() {
- if(keyCode === UP_ARROW){
-	 Matter.body.applyForce(paperObject.body , paperObject.position , {x:85 ,y:-85});
- }
-}
+
+
