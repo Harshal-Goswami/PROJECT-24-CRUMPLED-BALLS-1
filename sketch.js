@@ -9,6 +9,9 @@ function preload()
 	
 }
 
+var engine , world ;
+var paperObject;
+
 function setup() {
 	createCanvas(800, 700);
 
@@ -16,8 +19,8 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	//Create the Bodies Here.
-
+	paperObject.Bodies.circle(200,200,10,10)
+    World.add(world,paperObject);
 
 	Engine.run(engine);
   
@@ -26,11 +29,14 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(0);
+  background("BLACK");
   
   drawSprites();
  
 }
 
-
-
+function keyPressed() {
+ if(keyCode === UP_ARROW){
+	 Matter.body.applyForce(paperObject.body , paperObject.position , {x:85 ,y:-85});
+ }
+}
