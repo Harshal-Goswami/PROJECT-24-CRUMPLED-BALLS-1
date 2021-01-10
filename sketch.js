@@ -3,28 +3,41 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
-
-function preload()
-{
-	
-}
-
+const Render = Matter.Render;
+var dustBinObj , paperObject , groundObject ;
 var engine , world ;
-var paperObject;
 
 function setup() {
-	createCanvas(800, 700);
-
+	createCanvas(1600, 800);
+	rectMode(CENTER);
 
 	engine = Engine.create();
 	world = engine.world;
 
-	paperObject.Bodies.circle(200,200,10,10)
-    World.add(world,paperObject);
+dustbinObj=new Dustbin(1200 , 650);
+paperObject=new paper(200,450,40);
+groundObject=new groundObject(width/2,670,width,20);
+//Create a Ground
+
+
+var render = Render.create();
+  element: document.body,
+  engine.engine,
+  options:    {
+	width: 1200,
+	height : 700,
+    wireframes : false,
+}
 
 	Engine.run(engine);
+	//Render.run(render);
+
+
+  }
+
+	
   
-}
+
 
 
 function draw() {
